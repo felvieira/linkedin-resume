@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .wrapper
+  form.form-signin(method='POST' action='/resume')
+    h2.form-signin-heading Insira seus dados do Linkedin
+    input.form-control(type='email', name='email', placeholder='Email', required='', autofocus='')
+    input.form-control(type='password', name='password', placeholder='Senha', required='')
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Gerar Currículo
+    button.btn.btn-lg.btn-secondary.btn-block(type='submit' formaction="/api") JSON do Currículo

@@ -1,0 +1,129 @@
+extends layout
+
+block content
+    // Begin Wrapper
+    #wrapper
+      .wrapper-top
+      .wrapper-mid
+        // Begin Paper
+        #paper
+          .paper-top
+          #paper-mid
+            .entry
+              // Begin Image
+              img.portrait(src='#{result.imgProfile}', alt='John Smith')
+              // End Image
+              // Begin Personal Information
+              .self
+                h1.name
+                  | #{result.name} 
+                  br
+                  span #{result.job}
+                ul
+                  li.ad #{result.city}
+                  li.mail johnsmith@business.com
+                  li.tel +11 444 555 22 33
+                  li.web www.businessweb.com
+              // End Personal Information
+              // Begin Social
+              .social
+                ul
+                  li
+                    a.north(href='#', title='Download .pdf')
+                      img(src='images/icn-save.jpg', alt='Download the pdf version')
+                  li
+                    a.north(href='javascript:window.print()', title='Print')
+                      img(src='images/icn-print.jpg', alt='')
+                  //- li
+                  //-   a#contact.north(href='contact/index.html', title='Contact Me')
+                  //-     img(src='images/icn-contact.jpg', alt='')
+                  //- li
+                  //-   a.north(href='#', title='Follow me on Twitter')
+                  //-     img(src='images/icn-twitter.jpg', alt='')
+                  //- li
+                  //-   a.north(href='#', title='My Facebook Profile')
+                  //-     img(src='images/icn-facebook.jpg', alt='')
+              // End Social
+              // Begin 1st Row
+              .entry
+                h2 Perfil
+                p
+                  | #{result.resume}
+              // End 1st Row
+              // Begin 2nd Row
+              .entry
+                h2 Formação acadêmica
+                each item in result.educational
+                  .content
+                    h3
+                      = item.educationalData
+                    p
+                      = item.educationalEnterprise
+                      br
+                      em
+                      = item.educationalName
+              // End 2nd Row
+              // Begin 3rd Row
+              .entry
+                h2 EXPERIÊNCIA PROFISSIONAL
+                each item in result.jobs
+                  .content
+                    h3 
+                      = item.data
+                      br
+                      = item.range
+                    p
+                      = item.enterprise
+                      br
+                      em 
+                        = item.position
+                    ul.info
+                      li 
+                        = item.details
+                                    //-   .content
+              //-     h3 Jun 2007 - May 2009
+              //-     p
+              //-       | Junior Web Designer 
+              //-       br
+              //-       em Bachelor of Science in Graphic Design
+              //-     ul.info
+              //-       li
+              //-         | Sed fermentum sollicitudin interdum. Etiam imperdiet sapien in dolor rhoncus a semper tortor posuere.
+              //-       li
+              //-         | Pellentesque at lectus in libero dapibus cursus. Sed arcu ipsum, varius at ultricies acuro, tincidunt iaculis diam.
+              // End 3rd Row
+              // Begin 4th Row
+              .entry
+                h2 HABILIDADES
+                .content
+                  h3 Skills
+                  each item in result.skillsOpen
+                    ul.skills
+                      li
+                        = item
+                //- .content
+                //-   h3 Ferramentas e tecnologias
+                //-   ul.skills
+                //-     li CSS/XHTML
+                //-     li PHP
+                //-     li JavaScript
+                //-     li Ruby on Rails
+                //-     li ActionScript
+                //-     li C++
+              // End 4th Row
+              // Begin 5th Row
+              .entry
+                h2 TRABALHOS
+                ul.works
+                each item in result.imgJobs
+                  li
+                    a(href='#{item}', rel='gallery', title='Lorem ipsum dolor sit amet.')
+                      img(src='#{item}', alt='')
+              // Begin 5th Row
+          .clear
+          .paper-bottom
+        // End Paper
+      .wrapper-bottom
+    #message
+      a#top-link(href='#top') Go to Top
+    // End Wrapper

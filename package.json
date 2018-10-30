@@ -1,0 +1,25 @@
+{
+	"name": "webscrapper2",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node bin/www"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"cheerio": "^0.22.0",
+		"cookie-parser": "~1.4.3",
+		"debug": "^3.1.0",
+		"express": "^4.16.3",
+		"jade": "~1.11.0",
+		"morgan": "^1.9.0",
+		"node-fetch": "^2.2.0",
+		"puppeteer": "^0.12.0",
+		"request": "^2.75.0",
+		"serve-favicon": "^2.5.0"
+	}
+}
