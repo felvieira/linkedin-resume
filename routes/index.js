@@ -5,17 +5,19 @@ const puppeteer = require('puppeteer');
 const fetch = require('node-fetch');
 
 let scrape = async (user, pass) => {
-	const browser = await puppeteer.launch({ headless: true })
-	const page = await browser.newPage()
-	await page.goto('https://www.linkedin.com')
-	await page.type('.login-email', user)
-	await page.type('.login-password', pass)
+	const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+	// const browser = await puppeteer.launch({ headless: true });
+	const page = await browser.newPage();
+	await page.goto('https://www.linkedin.com');
+	await page.type('.login-email', user);
+	await page.type('.login-password', pass);
 
-	await page.click('#login-submit')
+	await page.click('#login-submit');
 
 	await page.waitForNavigation();
 
-	await page.click('#profile-nav-item')
+	await page.click('#profile-nav-item');
+
 
 	// await page.click('a.nav-settings__view-profile-link')
 
